@@ -1,0 +1,142 @@
+# Soul Tribe – Complete App Design & Policy Document
+
+## Vision
+Soul Tribe is a spiritual community platform fostering authentic connections, personal growth, and healing. It uses interactive chat, personal development tools, a knowledge library, and a unique karma/dharma point system for a safe, supportive, and transformative space.
+
+---
+
+## Core Features
+
+### 1. Community Chat & Rooms
+- Themed chat rooms (spiritual paths, healing, relationships, interests)
+- Real-time chat, events, and group activities
+
+### 2. Growth & Healing Tools
+- Guided meditations, journaling, self-reflection, wellness challenges
+- Personal progress tracking
+
+### 3. Soul Connections & Dating
+- Optional dating and friendship profiles
+- Matching by spiritual interests, values, and dharma alignment
+- Safe private and group chat options
+
+### 4. Knowledge & Skills Library
+- Curated and user-contributed content (articles, videos, courses)
+- Moderation and karma-influenced content visibility
+
+### 5. Profiles & Matching
+- Customizable profiles (spiritual path, interests, intentions, dharma)
+- Matching for friends, mentors, or partners using karma/dharma and interests
+
+---
+
+## Karma & Dharma Point System
+
+### Dharma (Positive Points)
+- **Earned:** Positive engagement, growth milestones, helping others, wisdom sharing, completing activities
+- **Can be purchased or earned through participation**
+- **13 Degrees:** Unlocks privileges, badges, features, host/mentor roles, exclusive content, and governance input
+
+### Karma (Negative Points)
+- **Accrued:** Toxic, disruptive, or harmful actions; breaking guidelines
+- **Acts as restriction:** Each degree increases restrictions
+- **Cannot be purchased down (except redemption for minor infractions); requires positive actions**
+- **13 Degrees:** See Karma Levels below
+
+---
+
+## Karma Level System
+
+| Degree | Consequence/Restriction                                 |
+|--------|---------------------------------------------------------|
+| 1      | Warning (private message)                               |
+| 2      | Profile flagged as under review                         |
+| 3      | Muted in group/public chats (24h)                       |
+| 4      | No private messaging (48h)                              |
+| 5      | Posts require moderator approval (72h)                  |
+| 6      | Cannot join/create special/protected rooms              |
+| 7      | Limited knowledge/skills library access                 |
+| 8      | Reduced visibility to others                            |
+| 9      | No chat/posting for 1 week                              |
+| 10     | Shadowban (user posts unseen by others)                 |
+| 11     | Probation: all actions logged/reviewed                  |
+| 12     | Suspension (30 days, must appeal or redeem)             |
+| 13     | Permanent ban (appeal after 90 days)                    |
+
+- **Progression:** Each infraction increases degree; severe violations can escalate multiple degrees or to 13 immediately
+- **Redemption:** Reduce karma by earning dharma via positive actions, challenges, or redemption (if allowed)
+- **Transparency:** Users see their degree and requirements for improvement
+
+---
+
+## Policy Highlights
+
+### 1. Zero Tolerance for Severe Violations
+
+**Who:**  
+- Scammers, spammers, solicitors of adult services, or offsite/unapproved products
+
+**Action:**  
+- Immediate Degree 13 (ban)
+- No second chances or redemption via dharma during ban; appeals only via moderator review
+- Offending content removed; illegal activities reported as required
+- Automated and community reporting prioritized
+
+### 2. Three Chances Policy for Toxic & Karmic Users
+
+**Who:**  
+- Users with negative but not severe behavior
+
+**Details:**  
+- 3 warnings/restrictions per calendar month
+- Each infraction = warning and a chance to redeem (positive activity, dharma purchase, or challenge)
+- After 3rd, suspension or ban; resets monthly
+
+### 3. General User Behavior & Redemption
+
+- Negative actions = karma (restrictions), positive actions = dharma (privileges)
+- Appeals allowed; redemption via positive participation and, when permitted, through dharma
+- Abuse of reporting/redemption is penalized
+
+---
+
+## Additional Features
+
+- **Moderation:** AI/automation plus trusted user moderators
+- **Onboarding:** Limited access until baseline dharma earned
+- **Support:** Karma/dharma status visible; clear policy access; support channels
+
+---
+
+## UI/UX Considerations
+
+- **Status Indicators:** Clear karma/dharma level and consequences/rewards
+- **Badges:** For high dharma, warning for high karma
+- **Redemption Paths:** Guided ways to improve karma/earn dharma
+- **Safety Prompts:** Warnings before risky actions
+
+---
+
+## Example User Flows
+
+### Karma Reduction (Redemption)
+1. User receives restriction (e.g., muted)
+2. App displays reason, degree, and clear path to redemption (e.g., join group meditation, complete kindness challenge, or—if allowed—purchase dharma)
+3. Progress tracked; upon completion, karma degree reduced and features restored
+
+### Zero Tolerance Enforcement
+1. User posts prohibited content (e.g., spam, scam, or solicitation)
+2. Automated or moderator detection triggers immediate ban (Degree 13)
+3. Content removed, user notified, with appeal link
+
+---
+
+## Transparency & Appeals
+
+- All users can view their karma/dharma history and current status
+- Clear explanations for restrictions or privileges
+- Appeals are reviewed by moderators for fairness
+
+---
+
+_This document reflects Soul Tribe’s commitment to a safe, supportive, and spiritually focused community. The karma/dharma system is designed to encourage growth and accountability while protecting members from harm._
