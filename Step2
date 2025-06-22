@@ -1,0 +1,210 @@
+## Partner & Upper-Level User Marketplace Access
+
+### 1. Professional Partners
+- **External professionals** (coaches, holistic providers, etc.) can apply for marketplace access via standard partner vetting and approval.
+- Upon approval, receive “Partner” or “Pro” status and can list products/services, advertise, and receive payouts per the commission structure.
+
+### 2. Upper-Level User Access (Community Creators)
+- **Eligibility:**  
+  - Users must meet all of the following:
+    - Premium or VIP membership, OR
+    - Dharma score above a threshold (e.g., 100+)
+    - No unresolved karma penalties in the last 60 days
+    - Account in good standing (no bans, not in “toxic/karmic” isolation)
+    - Optionally, must have been active for at least 90 days
+- **Application & Approval:**  
+  - Eligible users may submit product/service listings for review.
+  - Listings reviewed for quality, relevance, and safety by moderators or admin staff.
+- **Marketplace Participation:**  
+  - Approved users can list/sell offerings in the marketplace, subject to same commission/compliance as external partners.
+  - Their vendor identity is marked as “Community Creator.”
+  - All listings are subject to periodic review and can be suspended/removed for complaints or violations.
+
+### 3. Product/Service Restrictions
+
+**A. Allowed Listings:**  
+- All listing types permitted:
+  - Digital products/services
+  - Physical products
+  - Events/workshops
+  - Coaching/consulting
+
+**B. Approval:**  
+- Manual approval for every listing by admins.
+- Optionally, occasional spot checks if auto-approve is enabled for trusted vendors.
+
+---
+
+### 4. Payment and Payout Flow
+
+**A. Checkout:**  
+- Partners/creators can choose:
+  - Process payments within the app (recommended for trust/commission control, and to enable money-back guarantee), or
+  - Redirect to their own secure site for checkout.
+
+**B. Payout Timing:**  
+- Payouts are made:
+  1. Immediately after sale (for some products/services)
+  2. Or, after user confirms delivery/satisfaction  
+  3. All transactions are covered by a time-limited money-back guarantee (duration set by admin, e.g., 7 or 14 days).
+
+---
+
+### 5. Commission Structure
+
+| Vendor Type        | Sales Volume (30-day) | Suggested Commission Rate |
+|--------------------|----------------------|--------------------------|
+| Partner/Pro        | Any                  | 10%                      |
+| Community Creator  | Any                  | 7%                       |
+| Either             | > $5,000             | 5%                       |
+| Either             | < $100               | 15%                      |
+
+- **Logic:**  
+  - Default for Partners: 10%.  
+  - Default for Community Creators: 7%.  
+  - If the vendor's 30-day sales volume exceeds $5,000, commission drops to 5% for the following month.  
+  - If a vendor’s monthly sales are below $100, commission increases to 15% for the following month (to offset processing/admin costs).
+  - **Admin can override per vendor or listing.**
+
+---
+
+### 6. Money-Back Guarantee
+
+- **Suggested Default:**  
+  - 14 days from the date of sale.
+  - Applies only to purchases completed within the platform.
+  - User must request a refund via their order history within 14 days.
+  - If a dispute is raised, payout to vendor is delayed until resolved or guarantee window expires.
+
+---
+
+### 7. Vendor Trust Requirements
+
+- **Suggested Default for Trusted Vendor Status (for faster payouts/auto-approval):**
+  - At least 90 days on platform
+  - No unresolved complaints in the last 60 days
+  - Average product/service rating of 4.5+ (out of 5)
+  - Verified identity and credentials on file
+
+---
+
+### 8. Auto-Approval & Payout Logic
+
+- **Trusted vendors:** Payouts are auto-processed after 3 days unless complaint is filed.
+- **New/untrusted vendors:** Payouts processed only after user confirms delivery/satisfaction or after the 14-day guarantee expires.
+
+---
+
+### 9. Ad Placement & Targeting
+
+**A. Ad Placement:**  
+- Marketplace has a dedicated tab for all users to browse.
+- Ads may also appear as homepage banners for visibility.
+- VIP members can choose to hide marketplace and ad banners (except for header ads, which always display).
+- All other users see marketplace and ads as designed.
+
+**B. Ad Formats:**  
+- Static image ads
+- Video ads
+
+**Side Note: “Free Basic Option” for Professionals:**  
+- Professionals will be periodically surveyed or asked during onboarding if they are willing to provide a limited “free basic reading/service” to users.
+- If agreed:
+  - Their listings are highlighted in interactive features (e.g., “Free Sample Readings!”).
+  - They receive a discount on the commission fee for sales/leads generated via the app.
+  - This encourages professionals to contribute value to the community in exchange for business promotion.
+
+---
+
+### 10. User Experience & Controls
+
+**A. Ratings/Reviews:**  
+- Users can rate and review both vendors and products/services.
+
+**B. Reporting/Praise:**  
+- Only admins can take moderation actions, but users can submit complaints or praise (feedback is logged and may be considered in vendor evaluations).
+
+---
+
+### 11. Workflow for Partner/Creator Onboarding
+
+1. Applicant submits required info and documents, including:
+    - Identity verification (e.g., government-issued ID, selfie, etc.)
+    - Professional/business credentials (licenses, certifications, relevant education)
+2. System runs automated checks (ID validation, credential matching).
+3. Admin manually reviews application and supporting materials.
+4. If approved:
+   - Partner or creator can list products/services in the marketplace.
+   - Optionally, during onboarding, they can opt-in for “free basic” feature for a commission discount.
+5. If rejected, feedback is provided and the applicant may reapply after a cooldown period.
+
+---
+
+### 12. Example Database Additions
+
+```sql
+Table: partners
+- id
+- business_name
+- contact_info
+- approved (boolean)
+- commission_rate
+- partner_profile
+- offers_free_basic (boolean)    -- new field
+- status (active, suspended, removed)
+
+Table: marketplace_creators
+- id
+- user_id (nullable, for community users)
+- partner_id (nullable, for external partners)
+- status (pending, approved, rejected, suspended)
+- creator_type (partner, community_user)
+- offers_free_basic (boolean)    -- new field
+
+Table: marketplace_listings
+- id
+- creator_id
+- product_name
+- description
+- price
+- commission_rate
+- offers_free_basic (boolean)    -- new field
+- product_type (digital, physical, event, consulting)
+- payment_flow (in_app, external)
+- commission_type (flat, tiered, partner_vs_user)
+- money_back_days
+- status (active, pending, removed)
+- sales_count
+
+Table: user_feedback
+- id
+- user_id
+- vendor_id
+- listing_id (nullable)
+- type (complaint, praise)
+- content
+- status (new, reviewed, resolved)
+- created_at
+
+Table: ad_preferences
+- id
+- user_id
+- hide_marketplace (boolean)
+- hide_ads (boolean) -- only available for VIPs
+- hide_header_ads (boolean) -- always false
+```
+
+---
+
+**Note:**  
+- All commission models are available and can be assigned at the listing/vendor/admin level as needed.
+- Money-back guarantee is time-limited and tied to on-platform checkout.
+- User feedback (complaint/praise) is visible to admins for review and vendor scoring.
+- Ad visibility is fully customizable for VIPs except header ads (which are always shown for platform sustainability).
+- Community users must maintain their good standing to keep vendor privileges.
+- User- and partner-generated products/services are clearly differentiated in the UI.
+
+---
+
+**Document last updated:** 2025-06-22  
+**Author:** Exorkismos  
